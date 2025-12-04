@@ -14,7 +14,7 @@ const getApiKey = () => {
 };
 
 const apiKey = getApiKey();
-const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
+const ai = apiKey ? new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY});
 
 export const getToolRecommendations = async (projectDescription: string): Promise<ToolRecommendation[]> => {
   if (!ai || !apiKey) {
